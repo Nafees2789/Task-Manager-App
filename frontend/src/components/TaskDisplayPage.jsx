@@ -76,64 +76,75 @@ function TaskDisplayPage() {
         <h1>Task List</h1>
       </div>
       <div className="add_task">
-        <span>Add task</span>
+        <span className="add_title">Add task</span>
         <Link to="/create" className="link-button">
           Add Task
         </Link>
       </div>
-      <div>
-        <label htmlFor="statusFilter">Filter by Status: </label>
-        <select
-          id="statusFilter"
-          value={statusFilter}
-          onChange={(e) => handleFilterByStatus(e.target.value)}
-        >
-          <option value="All">All</option>
-          <option value="To Do">To Do</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Done">Done</option>
-        </select>
+      <div className="filters">
+        <div>
+          <label htmlFor="statusFilter">Filter by Status: </label>
+          <select
+            id="statusFilter"
+            value={statusFilter}
+            onChange={(e) => handleFilterByStatus(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="priorityFilter">Filter by Priority: </label>
+          <select
+            id="priorityFilter"
+            value={priorityFilter}
+            onChange={(e) => handleFilterByPriority(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
       </div>
-      <div>
-        <label htmlFor="priorityFilter">Filter by Priority: </label>
-        <select
-          id="priorityFilter"
-          value={priorityFilter}
-          onChange={(e) => handleFilterByPriority(e.target.value)}
-        >
-          <option value="All">All</option>
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Priority</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredTasks.map((task) => (
-            <tr key={task.id}>
-              <td>{task.title}</td>
-              <td>{task.description}</td>
-              <td>{task.priority}</td>
-              <td>{task.status}</td>
-              <td>
-                <Link to={`/update/${task.id}`} className="link-button">
-                  Update
-                </Link>
-                <button onClick={() => handleDelete(task.id)}>Delete</button>
-              </td>
+      <div className="table_data">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredTasks.map((task) => (
+              <tr key={task.id}>
+                <td>{task.title}</td>
+                <td>{task.description}</td>
+                <td>{task.priority}</td>
+                <td>{task.status}</td>
+                <td>
+                  <div>
+                    <Link to={`/update/${task.id}`} className="link-button">
+                      Update
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(task.id)}
+                      className="delete-button"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

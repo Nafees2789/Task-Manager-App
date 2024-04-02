@@ -7,8 +7,8 @@ import '../App.css';
 function TaskCreationForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [priority, setPriority] = useState('Medium');
-  const [status, setStatus] = useState('To Do');
+  const [priority, setPriority] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,8 +23,8 @@ function TaskCreationForm() {
       alert('Task created successfully!');
       setTitle('');
       setDescription('');
-      setPriority('Medium');
-      setStatus('To Do');
+      setPriority('');
+      setStatus('');
     } catch (error) {
       console.error('Error creating task:', error);
       alert('Error creating task. Please try again.');
@@ -32,7 +32,7 @@ function TaskCreationForm() {
   };
 
   return (
-    <div>
+    <div className="formStyle">
       <h1>Create New Task</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -59,6 +59,7 @@ function TaskCreationForm() {
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
           >
+            <option value="">Select</option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
@@ -68,16 +69,19 @@ function TaskCreationForm() {
         <label>
           Status:
           <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <option value="">Select</option>
             <option value="To Do">To Do</option>
             <option value="In Progress">In Progress</option>
             <option value="Done">Done</option>
           </select>
         </label>
         <br />
-        <button type="submit">Create Task</button>
-        <Link to="/" className="link-button">
-          Back
-        </Link>{' '}
+        <div className="create_buttons">
+          <button type="submit">Create Task</button>
+          <Link to="/" className="back-button">
+            Back
+          </Link>{' '}
+        </div>
       </form>
     </div>
   );

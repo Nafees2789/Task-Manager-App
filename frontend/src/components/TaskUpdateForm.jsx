@@ -58,9 +58,9 @@ function TaskUpdateForm() {
   }
 
   return (
-    <div>
+    <div className="formStyle">
       <h2>Update Task</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="update_form">
         <label>
           Title:
           <input
@@ -98,14 +98,16 @@ function TaskUpdateForm() {
           </select>
         </label>
         <br />
-        <button type="submit" className="link-button">
-          Update
-        </button>
-        <Link to="/" className="link-button">
-          Back
-        </Link>{' '}
-        {/* Back button using Link */}
-        {/* Back button using Link */}
+        <div className="create_buttons">
+          <button type="submit" className="link-button">
+            Update
+          </button>
+          <Link to="/" className="back-button">
+            Back
+          </Link>{' '}
+          {/* Back button using Link */}
+          {/* Back button using Link */}
+        </div>
       </form>
       {updateMessage && <p>{updateMessage}</p>}{' '}
       {/* Display update success message */}
