@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: rgba(40, 180, 231, 255);
+  height: 50px;
+  padding: 3px;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.title {
+  color: white;
+  font-weight: 600; /* Adjust the value as needed for the desired boldness */
+  font-size: 24px; /* Increase the font size as needed */
+  font-family: Arial, sans-serif; /* Change the font family as needed */
+}
+
+.displayPage {
+  border: 2px solid #ccc; /* Add border */
+  padding: 20px; /* Add padding for spacing */
+  height: 50%;
+  width: 70%; /* Set the width of the element */
+  position: absolute; /* Position the element */
+  top: 50%; /* Align the top of the element to the middle of the page */
+  left: 50%; /* Align the left side of the element to the middle of the page */
+  transform: translate(-50%, -50%); /* Center the element */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+.page_title {
+  text-align: center; /* Center-align the text */
+  margin-bottom: 20px; /* Add margin at the bottom for spacing */
+}
+
+.page_title h1 {
+  color: #333; /* Set text color */
+  font-size: 29px; /* Set font size */
+}
+
+.add_task {
+  border: 2px solid #ccc;
+  width: 90%;
+}
+
+.link-button {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #ccc;
+  border: 1px solid #999;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #000;
+}
+
+.link-button:hover {
+  background-color: #999;
+  color: #fff;
+}
