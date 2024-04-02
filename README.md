@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- React and Node version should be greater than 18.
+- React and Node version should be equal or greater than 18.
 - MySQL Workbench Community - Version 8.0.36
 - MySQL Installer - Version 8.0.36
 
